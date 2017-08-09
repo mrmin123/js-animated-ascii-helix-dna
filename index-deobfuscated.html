@@ -1,0 +1,64 @@
+<pre id=h></pre>
+<script>
+    let h = document.getElementById("h"); // line not explicitly required
+    let offset = 0; // aka e
+
+    let main = function() {
+        for (
+            y_pos = 20, // aka H
+            content = '', // aka E
+            innerHTMLString = 'innerHTML', // aka L
+            taylor = taylor, // aka I
+            helixString = innerHTMLString[5] + (RegExp + '')[12] + innerHTMLString[8] + (Infinity + '')[0] + 'X', // aka D; results in 'HELIX'
+            offset = offset > 49 ? 0 : offset,
+            offset += 1,
+            factorials = factorials, // aka N
+            term = term, // aka l
+            power = power; // aka i
+            y_pos--;
+        ) {
+            for (
+                x_pos = 0; // aka A
+                x_pos <= 50;
+                x_pos++
+            ) {
+                scale = (x_pos + offset) / 50 * 3.14152 * 2; // aka d
+                sine1 = (taylor(scale-7)) >> 0 // aka n
+                sine2 = (taylor(scale-5.1)) >> 0 // aka a
+
+                if (y_pos == sine1 || y_pos == sine2 || y_pos == sine1 - 1 || y_pos == sine2 - 1) {
+                    content += helixString[x_pos % 5]
+                } else if ((x_pos + offset) % 5 == 0 && ((y_pos < sine1 && y_pos > sine2) || (y_pos > sine1 && y_pos < sine2))) {
+                    content += '#'
+                } else {
+                    content += ' '
+                }
+            }
+            content += '\n'
+        }
+        h.innerHTML = content
+    }
+
+    // partial taylor series to replace Math.sin()
+    let taylor = function(X) {
+        return (6 * (X - term(X, 0) + term(X, 1) - term(X, 2) + term(X, 3) - term(X, 4) + term(X, 5) - term(X, 6) + term(X, 7) - term(X, 8) + term(X, 9))) + 11
+    }
+
+    // pre-calculated factorials
+    let factorials = [6, 120, 5040, 362880, 39916800, 6.2270e9, 1.30767e12, 3.55687e+14, 1.216451e+17, 5.1090942e+19]
+    // originally [6, 120, 5040, 362880, 39916800, 6227020800, 1.3076744e12, 3.5568743e+14, 1.216451e+17, 5.1090942e+19]
+
+    // taylor series term for sin
+    let term = function(d, n) {
+        return power(d, n * 2 + 3) / factorials[n]
+    }
+
+    // rudimentary power function to replace Math.pow()
+    let power = function(d, n) {
+        a = 1
+        for (n; n--;) { a *= d }
+        return a
+    }
+
+    setInterval(main, 40);
+</script>
